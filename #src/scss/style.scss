@@ -1,0 +1,684 @@
+/*Шрифт по умолчанию*/
+$fontFamily: 'gilroy';
+$fontSize: 16;
+/*--------------------*/
+/*Иконочные шрифты*/
+@import 'icons.scss';
+/*--------------------*/
+/*ПЕРЕМЕННЫЕ*/
+$maxWidth: 1440px;
+$maxWidthContainer: 1270;
+$mainColor:#505050;
+$blue: #378dbe;
+$backgroundBlue: #c0dcea;
+$white: #fefefe;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+/*--------------------*/
+/*Подключение файлов стилей*/
+@import 'swiper-bundle.min.scss';
+@import 'mixins.scss';
+@import 'fonts.scss';
+@import 'blocks/header.scss';
+@import 'blocks/footer.scss';
+/*--------------------*/
+
+/*ОСНОВНАЯ СЕТКА*/
+body{
+	font-family: $fontFamily;	
+	color: $mainColor;
+	font-size: 16px;
+	//background-color: $backgroundBlue;
+	//padding: 180px 0 0 0;
+	&._lock{
+		overflow: hidden;
+	}	
+}
+
+.wrapper{	
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	&._loaded{}
+		
+}
+
+footer{
+	margin: 0 0 auto;
+}
+/*--------------------*/
+/*ОСНОВНАЯ СЕТКА*/
+.container{
+	max-width: $maxWidthContainer + px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+/*--------------------*/
+/*Обнуление*/
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer; background: transparent;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+/*--------------------*/
+/*.ibg*/
+.ibg{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	img{display: none;}	
+	}		
+/*--------------------*/
+._footer-title{
+	@include adaptiv-property("font-size", 24, 20, 1);
+	font-weight: 700;
+	line-height: 29 / 24 * 100%;
+	color: #000000;
+}
+.btn{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 15px;
+	text-align: center;
+	transition: all 0.3s ease 0s;
+	min-height: 48px;
+	&_white {
+		color: $blue;
+		background-color: #fff;
+		@media (any-hover: hover) {
+			&:hover{
+				background-color: $blue;
+				color: #fff;
+			}
+			
+		}
+	}
+
+}
+.swiper-pagination-bullets{
+	display: flex;
+	flex-wrap: wrap;
+}
+.swiper-pagination-bullet{
+	cursor: pointer;	
+	flex: 0 0 11px;
+	height: 11px;
+	background-color: $blue;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	margin: 2px 0;
+	&:not(:last-child){
+		margin-right: 12px;
+	}
+}
+._flyImage.ibg{
+	opacity: 1;
+	position: fixed;
+	z-index: 100;
+	transition: all 1s ease 0s;
+}
+/*--------------------*/
+.page {
+	flex: 1 1 auto;
+
+	&__main-slider {
+	}
+	&__advantages {
+	}
+	&__products {
+	}
+}
+.main-slider {
+	background: #e6e8eb;	
+
+	&__container {
+		position: relative;
+		@media (min-width: $md2+px) {
+			&::before{
+				content: "";
+				background-color: $backgroundBlue;
+				position: absolute;
+				top: 0;
+				width: 100vw;
+				right: 376px;
+				height: 100%;
+			}
+		}
+	}
+
+	&__body {
+		padding: 140px 0 0 0;
+		position: relative;
+		z-index: 2;
+		@media (max-width: $md2+px) {
+			padding: 80px 0 0 0;
+		}
+		@media (max-width: $md3+px) {
+			padding: 50px 0 0 0;
+		}
+		@media (min-width: $md2+px) {
+			display: flex;
+		}
+	}
+
+	&__content {
+		align-self: flex-start;
+		flex: 0 0 494/1240 * 100%;
+		@include adaptiv-property("margin-bottom", 80, 15, 1);
+		@media (max-width: $md2 + px){
+			margin: 0 -15px;
+
+		}
+	}
+
+	&__slider {
+		flex: 1 1 auto;
+		min-width: 0;
+		align-self: flex-end;
+		@media (min-width: $md2 + px) {
+			padding: 0 0 0 32px;
+		}
+	}
+}
+.container {
+}
+.content-main {
+	position: relative;
+	z-index: 5;
+	background: rgba(255, 255, 255, 0.72);
+	@include adaptiv-property("padding-top", 60, 15, 1);
+	@include adaptiv-property("padding-bottom", 60, 15, 1);
+	padding-left: 15px;
+	padding-right: 15px;
+	@media (min-width:$md2+px) {
+		@include adaptiv-property("padding", 60, 1, 1);
+		@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))){
+			background: rgba(255, 255, 255, 0.9);
+			backdrop-filter: blur(31px);
+		}
+	}	
+
+	&__title {
+		@include adaptiv-property("font-size", 56, 24, 1);
+		font-weight: 700;
+		line-height: 120%;
+		color: #3A3A3A;
+		&:not(:last-child){
+			margin: 0 0 16px/56px * 1em 0;
+		}
+	}
+
+	&__text {
+		@include adaptiv-property("font-size", 20, 16, 1);
+		font-weight: 500;
+		line-height: 150%;
+		&:not(:last-child){
+			margin: 0 0 16px/20px * 1em 0;
+		}		
+	}
+
+	&__button {
+		@include adaptiv-property ("min-height", 78px, 45, 1);
+		@include adaptiv-property ("font-size", 20px, 16, 1);
+		font-weight: 600;
+		background-color: $blue;
+		cursor: pointer;
+		color: #fff;
+		width: 100%;
+		@media(any-hover: hover){
+			&:hover{
+				background-color: #347ea8;
+			}
+		}
+	}
+}
+.slider-main {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	@media (max-width: $md2 + px) {
+		align-items: stretch;
+		flex-direction: column-reverse;
+	}
+		
+
+	&__controls {
+		align-self: stretch;		
+		margin: 0 0 20px 0;
+		@media (max-width: $md2 + px){
+			margin: 10px 0 20px 0;
+		}
+	}
+
+	&__body {
+		overflow: visible;
+		@media (min-width: $md2+px) {
+			@include adaptiv-property("width", 934, 290, 1);
+		}	
+		@media (max-width: $md2 + px){
+			margin: 0 -15px;
+
+		}	
+	}
+
+	&__slide {
+		position: relative;
+		
+	}
+	
+	&__image {
+		padding: 0 0 59.1% 0;		
+	}
+
+	&__content {
+		min-width: 295px;
+		max-height: 300px;
+		overflow: auto;		
+		color: inherit;
+		display: flex;
+		flex-direction: column;
+		@include adaptiv-property("padding", 24, 15, 1);
+		background: rgba(255, 255, 255, 0.72);
+		@media (min-width: $md3 + px) {
+			position: absolute;
+			min-width: 350px;
+			@include adaptiv-property("right", 40, 0, 1);
+			@include adaptiv-property("bottom", 40, 0, 1);
+		}
+		@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))){
+			background: rgba(255, 255, 255, 0.9);
+			backdrop-filter: blur(31px);
+		}
+	}
+
+	&__title {
+		font-weight: 600;
+		@include adaptiv-property("font-size", 28, 22px, 1);		
+		line-height: 120%;
+		color: #3A3A3A;
+		margin: 0 0 4px/28px * 1em 0;
+	}
+
+	&__text {
+		font-weight: 500;		
+		@include adaptiv-property("font-size", 16, 14px, 1);
+		line-height: 150%;
+		color: $mainColor;
+		&:not(:last-child){
+			margin: 0 0 8px/16px * 1em 0;
+
+		}		
+		
+	}
+
+	&__price {
+		display: flex;	
+		flex-direction: row-reverse;	
+		font-weight: 600;
+		@include adaptiv-property("font-size", 20, 16px, 1);
+		justify-content: space-between;
+		align-items: center;
+		line-height: 150%;
+		color: #3A3A3A;
+		align-items: center;
+		&::before{
+			margin: 0 0 0 10px;
+			font-size: 12px;
+		}
+	}
+}
+.controls-slider-main {
+	display: flex;	
+	align-items: center;
+
+	&__dotts {
+		flex: 1 1 auto;		
+		@media (max-width: $md2 + px) {
+			justify-content: center;			
+		}
+		@media (min-width: $md2 + px){
+			margin: 0 20px 0 0 ;
+		}
+		
+	}
+
+	&__arrows {
+		@media (max-width: $md2 + px){
+			display: none;
+		}
+	}
+}
+.slider-arrows {
+	display: grid;
+	grid-template-columns: repeat(2, 48px);
+	column-gap: 8px;
+}
+.slider-arrow {
+	border-radius: 50%;
+	background-color: $backgroundBlue;
+	height: 48px;
+	align-items: center;
+	color: $blue;
+	font-size: 12px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	&_prev {
+		&::before{
+			transform: rotate(90deg);
+		}
+	}
+
+	&_next {
+		&::before{
+			transform: rotate(-90deg);
+
+		}
+	} 
+	@media(any-hover: hover){
+		&:hover{
+			color: #fff;
+			background-color: #347ea8;
+		}
+	}
+	&_white{
+		background: #fff;
+		box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.16);
+		@media(any-hover: hover){
+			&:hover{
+				color: #fff;
+				background-color: $blue;
+			}
+		}
+	}
+}
+
+.advantages {
+	@include adaptiv-property("padding-top", 88, 30, 1);
+	@include adaptiv-property("padding-bottom", 88, 30, 1);
+
+	&__container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	&__item {
+		display: inline-grid;
+		padding: 15px 0;
+		grid-template: auto auto / 85px 1fr;
+		@media (max-width: $md2 + px) {
+			min-width: 280px;
+		}
+		@media (max-width: $md3 + px){
+			grid-template: auto auto / auto 1fr;
+		}
+	}
+
+	&__icon {
+		text-align: center;
+		align-self: center;
+		grid-row: span 2;
+		@media (max-width: $md3 + px) {
+			padding: 0 15px 0 0;
+		}
+	}
+
+	&__title {
+		@include adaptiv-property("font-size", 18, 15, 1);
+		font-weight: 600;		
+		line-height: 150%;
+	}
+
+	&__text {
+		font-weight: 500;
+		@include adaptiv-property("font-size", 16, 13, 1);
+		line-height: 150%;
+		color: #898989;
+	}
+}
+/*PRODUCTS*/
+.products {
+	@include adaptiv-property("padding-bottom", 44, 30, 1);
+	background-color: #e6e8eb;
+
+	&__container {
+	}
+
+	&__title {
+		margin: 0 0 32px/40px * 1em 0;
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+		gap: 32px;
+	}
+
+	&__item {
+	}
+	&__footer{
+		padding: 32px 0 0 0;
+		text-align: center;
+	}
+	&__more{
+		border: 1px solid $blue;
+		min-width: 245px;
+	}
+}
+.title {
+	text-align: center;
+	@include adaptiv-property("font-size", 40, 24, 1);	
+	line-height: 120%;
+	color: #3A3A3A;
+	font-weight: 700;
+}
+.item-product {
+	background-color: #f0f0f0;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	@media (any-hover: hover) {
+		
+		&:hover{
+			box-shadow: 0px 15px 15px 15px rgba($color: #000000, $alpha: 0.5);
+			.item-product__actions{
+				cursor: pointer;
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+	&__labels {
+		position: absolute;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		@include adaptiv-property("right", 24, 10, 1);
+		@include adaptiv-property("top", 24, 10, 1);
+	}
+
+	&__label {
+		flex: 0 0 48px;
+		width: 48px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		font-weight: 500;
+		border-radius: 50%;
+		cursor: pointer;
+		@media (any-hover: hover) {
+			&:hover{
+				background-color: $blue;
+			}
+		}
+		&:not(:last-child){
+			margin: 0 0 10px 0;
+		}
+
+		&_sale {
+			background-color: $backgroundBlue;
+		}
+		&_new{
+			background-color: $backgroundBlue;
+		}
+		&_top{
+			background-color: $backgroundBlue;
+		}
+	}
+
+	&__image {
+		padding: 0 0 301px/285px * 100% 0;
+	}
+
+	&__body {
+		flex: 1 1 auto;
+		padding: 16px 16px 30px 16px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__content {
+		flex: 1 1 auto;
+	}
+
+	&__title {
+		@include adaptiv-property("font-size", 24, 20, 1);		
+		line-height: 120%;
+		font-weight: 600;		
+		color: #3A3A3A;
+		margin: 0 0 8px/24px * 1em 0;
+	}
+
+	&__text {
+		font-weight: 500;
+		@include adaptiv-property("font-size", 16, 13, 1);
+		color: $blue;
+		line-height: 150%;
+		margin: 0 0 8px/24px * 1em 0;
+	}
+
+	&__prices {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		line-height: 150%;
+	}
+
+	&__price {
+		@include adaptiv-property("font-size", 20, 16, 1);
+		font-weight: 600;
+
+		&_old {
+			@include adaptiv-property("font-size", 16, 14, 1);
+			font-weight: 400;
+			margin: 0 0 0 16px;
+			color: $blue;
+			text-decoration: line-through;
+		}
+	}
+
+	&__actions {
+		@media (any-hover: none){
+			padding: 15px 0 0 0;
+		}
+		@media (any-hover: hover) {			
+				opacity: 0;
+				visibility: hidden;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition: all 0.3s ease 0s;
+				background-color: rgba(58, 58, 58, 0.74);
+				z-index: 3;
+
+			
+			
+		}
+	}
+}
+
+.actions-product {
+
+	&__body {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	&__button {
+		flex: 1 1 100%;
+		&:not(:last-child){
+			margin: 0 0 24px 0;
+		}
+	}
+
+	&__link {
+		display: flex;
+		transition: color 0.3s ease 0s;
+		align-items: center;
+		color: inherit;
+		font-weight: 600;		
+		@media (any-hover: hover) {
+			color: #fff; 
+			&:hover{
+				color: $blue;
+			}
+		}
+		&::before{
+			margin: 0 10px 0 0;
+			font-size: 16px;			
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

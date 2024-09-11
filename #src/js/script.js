@@ -1,0 +1,5 @@
+@@include('jquery-3.5.1.min.js')
+@@include('swiper-bundle.min.js')
+@@include('slider.js')
+@@include('functions.js')
+@@include('actions.js')
